@@ -1,13 +1,13 @@
 6steps: 
   # Build the container image
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['build', '-t', 'gcr.io/chp-nlp-lstm/chp-nlp-lstm', '.']
+    args: ['build', '-t', 'gcr.io/chp-nlp-lstm-420823/chp-nlp-lstm', '.']
   # Push the container image to Container Registry
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['push', 'gcr.io/chp-nlp-lstm/chp-nlp-lstm']
+    args: ['push', 'gcr.io/chp-nlp-lstm-420823/chp-nlp-lstm']
   # Deploy container image to Cloud Run
   - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
     entrypoint: gcloud
-    args: ['run', 'deploy', 'chp-nlp-lstm', '--image', 'gcr.io/chp-nlp-lstm/chp-nlp-lstm', '--region', 'us-central1', '--platform', 'managed', '--port', '80']
+    args: ['run', 'deploy', 'chp-nlp-lstm', '--image', 'gcr.io/chp-nlp-lstm-420823/chp-nlp-lstm', '--region', 'us-central1', '--platform', 'managed', '--port', '80']
 images:
-  - gcr.io/chp-nlp-lstm/chp-nlp-lstm
+  - gcr.io/chp-nlp-lstm-420823/chp-nlp-lstm
